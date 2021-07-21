@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>{% block titulo %}Base{% endblock titulo%}</title>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Cursos</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="{% url 'main:homrepage'%}">Inicio</a></li>
+          <li><a href="{% url 'main:curso_form' %}">Agregar Curso</a></li>
+          <li><a href="{% url 'main:lista_form' %}">Lista de Cursos</a></li>
+          <li><a href="{% url 'inscripciones:lista_estudiantes' %}">Lista de Estudiantes</a></li>
+
+        </ul>
+      </div>
+    </nav>
+</head>
+<body>
+  <div class="container">
+    {% block contenido %}
+    {% endblock contenido %}
+
+  </div>
+  
+   
+     
+
+       <!-- Compiled and minified JavaScript -->
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
