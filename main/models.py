@@ -9,5 +9,5 @@ class Curso(models.Model):
     curso_publicado= models.DateTimeField("Fecha de publicacion", default=datetime.now())
     costo = models.DecimalField(max_digits=5, decimal_places=2, default=0)
 
-    def _str_(self):
+    def __str__(self):
         return self.curso_titulo

@@ -1,7 +1,9 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from .models import Curso
+from inscripciones.models import*
 from .form import CursoForm
+from django.db.models import Sum
 
 # Create your views here.
 
@@ -50,3 +52,14 @@ def eliminarCurso(request,id):
     curso = Curso.objects.get(id = id)
     curso.delete()
     return redirect('main:lista_form')
+
+def inscritosCurso(request, id):
+    cursos = Curso.objects.get(id=id)
+    inscritos_curso = Inscripcion.objects.filter(curso = cursos)
+    suma_costos = inscritos_curso.aggregate(Sum('costo_total'))
+    contexto = {
+        'cursos': cursos,
+        'inscritos_curso': inscritos_curso, 
+        'suma_costos': suma_costos  
+    }
+    return render(request, 'inscripciones/lista_inscritos.html', contexto)

@@ -16,8 +16,8 @@
         </div>
         <div class="card-action">
           <a href="#">Ir al Curso</a>
-          <a href="#">Ver mas detalles</a>
           <a href="{% url 'inscripciones:inscripcionesform' cur.pk %}">Inscripciones</a>
+          <a href="{% url 'main:inscritos_curso' cur.pk %}">Inscritos</a>
         </div>
       </div>
     </div>
